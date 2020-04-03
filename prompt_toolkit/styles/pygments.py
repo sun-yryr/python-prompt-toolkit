@@ -63,5 +63,7 @@ def pygments_token_to_classname(token: "Token") -> str:
     (Our Pygments lexer will also turn the tokens that pygments produces in a
     prompt_toolkit list of fragments that match these styling rules.)
     """
-    parts = ("pygments",) + token
+    parts = ("pygments",)
+    if token is not None:
+        parts += token
     return ".".join(parts).lower()
